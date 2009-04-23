@@ -3,7 +3,7 @@
 //  TouchPie
 //
 //  Created by Antonio Cabezuelo Vivo on 19/11/08.
-//  Copyright __MyCompanyName__ 2008. All rights reserved.
+//  Copyright Taps and Swipes 2008. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

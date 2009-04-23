@@ -3,7 +3,7 @@
 //  TouchPie
 //
 //  Created by Antonio Cabezuelo Vivo on 19/11/08.
-//  Copyright __MyCompanyName__ 2008. All rights reserved.
+//  Copyright Taps and Swipes 2008. All rights reserved.
 //
 
 #import "TouchPieViewController.h"
@@ -49,42 +49,50 @@
 												   selector:@selector(itemSelected:) 
 												   userInfo:nil 
 													   icon:[UIImage imageNamed:@"icon1.png"]];
-	itemA.userInfo = itemA;
-	PieMenuItem *itemB = [[PieMenuItem alloc] init];
-	itemB.title = @"ItemB";
-	itemB.target = self;
-	itemB.action = @selector(itemSelected:);
-	itemB.userInfo = itemB;
-	PieMenuItem *itemC = [[PieMenuItem alloc] init];
-	itemC.title = @"ItemC";
-	itemC.target = self;
-	itemC.action = @selector(itemSelected:);
-	itemC.userInfo = itemC;
-	itemC.icon = [UIImage imageNamed:@"icon2.png"];
-	PieMenuItem *itemD = [[PieMenuItem alloc] init];
-	itemD.title = @"ItemD";
-	itemD.target = self;
-	itemD.action = @selector(itemSelected:);
-	itemD.userInfo = itemD;
-	itemD.icon = [UIImage imageNamed:@"icon3.png"];
-	PieMenuItem *itemE = [[PieMenuItem alloc] init];
-	itemE.title = @"ItemE";
-	itemE.target = self;
-	itemE.action = @selector(itemSelected:);
-	itemE.userInfo = itemE;
-	itemE.icon = [UIImage imageNamed:@"icon4.png"];
-	PieMenuItem *itemF = [[PieMenuItem alloc] init];
-	itemF.title = @"ItemF";
-	itemF.target = self;
-	itemF.action = @selector(itemSelected:);
-	itemF.userInfo = itemF;
-	itemF.icon = [UIImage imageNamed:@"icon4.png"];
-	PieMenuItem *itemG = [[PieMenuItem alloc] init];
-	itemG.title = @"itemG";
-	itemG.target = self;
-	itemG.action = @selector(itemSelected:);
-	itemG.userInfo = itemG;
-	itemG.icon = [UIImage imageNamed:@"icon4.png"];
+
+	PieMenuItem *itemB = [[PieMenuItem alloc] initWithTitle:@"ItemB" 
+													  label:nil 
+													 target:self 
+												   selector:@selector(itemSelected:) 
+												   userInfo:nil 
+													   icon:[UIImage imageNamed:@"icon1.png"]];
+	
+	PieMenuItem *itemC = [[PieMenuItem alloc] initWithTitle:@"ItemC" 
+													  label:nil 
+													 target:self 
+												   selector:@selector(itemSelected:) 
+												   userInfo:nil 
+													   icon:[UIImage imageNamed:@"icon2.png"]];
+	
+	PieMenuItem *itemD = [[PieMenuItem alloc] initWithTitle:@"ItemD" 
+													  label:nil 
+													 target:self 
+												   selector:@selector(itemSelected:) 
+												   userInfo:nil 
+													   icon:[UIImage imageNamed:@"icon3.png"]];
+	
+	
+	PieMenuItem *itemE = [[PieMenuItem alloc] initWithTitle:@"ItemE" 
+													  label:nil 
+													 target:self 
+												   selector:@selector(itemSelected:) 
+												   userInfo:nil 
+													   icon:[UIImage imageNamed:@"icon4.png"]];
+	
+	PieMenuItem *itemF = [[PieMenuItem alloc] initWithTitle:@"ItemF" 
+													  label:nil 
+													 target:self 
+												   selector:@selector(itemSelected:) 
+												   userInfo:nil 
+													   icon:[UIImage imageNamed:@"icon4.png"]];
+	
+	PieMenuItem *itemG = [[PieMenuItem alloc] initWithTitle:@"ItemG" 
+													  label:nil 
+													 target:self 
+												   selector:@selector(itemSelected:) 
+												   userInfo:nil 
+													   icon:[UIImage imageNamed:@"icon4.png"]];
+	
 	
 	[itemA addSubItem:itemE];
 	[itemA addSubItem:itemB];
@@ -97,6 +105,7 @@
 	//[pieMenu addItem:itemB];
 	[pieMenu addItem:itemF];
 	[pieMenu addItem:itemG];
+	
 	[itemA release];
 	[itemB release];
 	[itemC release];

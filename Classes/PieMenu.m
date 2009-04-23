@@ -3,7 +3,7 @@
 //  TouchPie
 //
 //  Created by Antonio Cabezuelo Vivo on 27/11/08.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
+//  Copyright 2008 Taps and Swipes. All rights reserved.
 //
 
 #import "PieMenu.h"
@@ -29,12 +29,12 @@ CGContextRef MyCreateBitmapContext (int pixelsWide, int pixelsHigh) {
     bitmapBytesPerRow   = (pixelsWide * 4);
     bitmapByteCount     = (bitmapBytesPerRow * pixelsHigh);
 	
-    colorSpace = CGColorSpaceCreateDeviceRGB();
     bitmapData = malloc( bitmapByteCount );
     if (bitmapData == NULL) {
         fprintf (stderr, "Memory not allocated!");
         return NULL;
     }
+    colorSpace = CGColorSpaceCreateDeviceRGB();
     context = CGBitmapContextCreate (bitmapData,
 									 pixelsWide,
 									 pixelsHigh,
@@ -42,12 +42,12 @@ CGContextRef MyCreateBitmapContext (int pixelsWide, int pixelsHigh) {
 									 bitmapBytesPerRow,
 									 colorSpace,
 									 kCGImageAlphaPremultipliedLast);
+    CGColorSpaceRelease( colorSpace );
     if (context== NULL) {
         free (bitmapData);
         fprintf (stderr, "Context not created!");
         return NULL;
     }
-    CGColorSpaceRelease( colorSpace );
 	
     return context;
 }

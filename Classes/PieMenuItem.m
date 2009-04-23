@@ -3,7 +3,7 @@
 //  TouchPie
 //
 //  Created by Antonio Cabezuelo Vivo on 27/11/08.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
+//  Copyright 2008 Taps and Swipes. All rights reserved.
 //
 
 #import "PieMenuItem.h"
@@ -48,8 +48,8 @@
 }
 
 - (void) performAction {
-	if (target != nil && action) {
-		[target performSelector:action withObject:userInfo];
+	if (target != nil && action && [target respondsToSelector:action]) {
+		[target performSelector:action withObject:self];
 	}
 }
 

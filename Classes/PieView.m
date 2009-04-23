@@ -3,7 +3,7 @@
 //  TouchPie
 //
 //  Created by Antonio Cabezuelo Vivo on 19/11/08.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
+//  Copyright 2008 Taps and Swipes. All rights reserved.
 //
 
 #import "PieView.h"
@@ -38,7 +38,7 @@
 - (void) initData;
 - (void) initGradients;
 - (void) itemSelected:(NSInteger)index;
-- (CGMutablePathRef) getPathForRect:(CGRect)rect;
+- (CGMutablePathRef) newPathForRect:(CGRect)rect;
 - (void) testForPoint:(CGPoint)point;
 - (void) subitemsTimerFired:(NSTimer *)theTimer;
 - (void) parentTimerFired:(NSTimer *)theTimer;
@@ -251,7 +251,7 @@
 	
 	// Draw the inner rounded rect
 	CGContextSetRGBStrokeColor(context, 255.0/255.0, 255.0/255.0, 255.0/255.0, 1.0);
-	CGMutablePathRef path = [self getPathForRect:CGRectMake(center.x - kRoundedRectRadius, center.y - kRoundedRectRadius, kRoundedRectRadius * 2.0, kRoundedRectRadius * 2.0)];
+	CGMutablePathRef path = [self newPathForRect:CGRectMake(center.x - kRoundedRectRadius, center.y - kRoundedRectRadius, kRoundedRectRadius * 2.0, kRoundedRectRadius * 2.0)];
 	CGContextAddPath(context, path);
     CGContextDrawPath(context, kCGPathStroke);
 	CGPathRelease(path);
@@ -265,7 +265,7 @@
 }
 
 
-- (CGMutablePathRef) getPathForRect:(CGRect)rect {
+- (CGMutablePathRef) newPathForRect:(CGRect)rect {
 	CGFloat radius = 5.0;
 	CGFloat minx = CGRectGetMinX(rect), midx = CGRectGetMidX(rect), maxx = CGRectGetMaxX(rect);
 	CGFloat miny = CGRectGetMinY(rect), midy = CGRectGetMidY(rect), maxy = CGRectGetMaxY(rect);
@@ -372,17 +372,13 @@
 
 - (void) subitemsTimerFired:(NSTimer *)theTimer {
 	if (selectedItem != kNoItemSelected) {
-		CGPoint p;
-		[[theTimer userInfo] getValue:&p];
-		[menu itemWithSubitemsSelected:items[selectedItem] withIndex:selectedItem atPoint:p];
+		[menu itemWithSubitemsSelected:items[selectedItem] withIndex:selectedItem atPoint:[[theTimer userInfo] CGPointValue]];
 	}
 }
 
 - (void) parentTimerFired:(NSTimer *)theTimer {
 	if (selectedItem != kNoItemSelected) {
-		CGPoint p;
-		[[theTimer userInfo] getValue:&p];
-		[menu parentItemSelected:items[selectedItem] withIndex:selectedItem atPoint:p];
+		[menu parentItemSelected:items[selectedItem] withIndex:selectedItem atPoint:[[theTimer userInfo] CGPointValue]];
 	}
 }	
 @end

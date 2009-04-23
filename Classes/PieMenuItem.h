@@ -3,7 +3,7 @@
 //  TouchPie
 //
 //  Created by Antonio Cabezuelo Vivo on 27/11/08.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
+//  Copyright 2008 Taps and Swipes. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -31,7 +31,7 @@ typedef enum {
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSString *label;
 @property (nonatomic, retain) id target;
-@property (nonatomic) SEL action;
+@property (nonatomic, assign) SEL action;
 @property (nonatomic, retain) id userInfo;
 @property (nonatomic, retain) UIImage *icon;
 @property (nonatomic, retain) NSArray *subItems;
