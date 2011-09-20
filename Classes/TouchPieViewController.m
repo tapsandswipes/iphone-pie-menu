@@ -160,6 +160,7 @@
 	UITouch *touch = [touches anyObject];
 	CGPoint p = [touch locationInView:self.view];
 	[pieMenu showInView:self.view atPoint:p];
+    [super touchesBegan:touches withEvent:event];
 }
 
 
